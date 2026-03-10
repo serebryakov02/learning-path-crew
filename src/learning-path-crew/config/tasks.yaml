@@ -1,0 +1,33 @@
+resource_research:
+  description: >
+    Find the best beginner-to-intermediate learning resources for {topic}.
+    Include a balanced mix of tutorials, documentation, videos, and hands-on practice resources.
+    For each resource, explain briefly what it covers, who it is best for, and why it is useful.
+  expected_output: >
+    A clear list of 5-8 high-quality learning resources for {topic}, with short explanations for each.
+  agent: researcher
+  output_file: output/resources.md
+
+learning_plan:
+  description: >
+    Using the researched resources, create the best 4-week learning plan for {topic}.
+    If the topic is too broad for 4 weeks, create an 8-week plan instead.
+    Break the plan into weekly goals, study focus, and practice tasks, and keep the order realistic for a learner.
+  expected_output: >
+    A structured 4-week or 8-week learning plan with clear weekly goals, study tasks, and practice milestones.
+  agent: planner
+  context:
+    - resource_research
+  output_file: output/learning_plan.md
+
+final_study_guide:
+  description: >
+    Combine the researched resources and the learning plan into one concise, practical study guide for {topic}.
+    Include the recommended study order, key milestones, and short advice for staying consistent and measuring progress.
+  expected_output: >
+    A polished study guide for {topic} that includes resources, roadmap, milestones, and practical tips.
+  agent: planner
+  context:
+    - resource_research
+    - learning_plan
+  output_file: output/final_guide.md

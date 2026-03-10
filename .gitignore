@@ -205,3 +205,12 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Project-generated artifacts
+output/
+
+# Local machine/editor files
+.DS_Store
+
+# Local user-specific knowledge/preferences
+knowledge/user_preference.txt
